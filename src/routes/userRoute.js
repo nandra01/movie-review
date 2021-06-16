@@ -24,8 +24,8 @@ router.get(
 );
 
 router.get(
-    '/user',
-    authController.getUsersRelation
+    '/userReview',
+    authController.getUsersReviews
 );
 
 router.put(

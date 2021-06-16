@@ -16,11 +16,26 @@ module.exports = {
       'reviews', [
         {
           user_id: 1,
-          movie_id: 1,
-          headline: 'Daebak! Great',
-          review: 'Film daebak banget, anjing',
+          movie_id: 2,
+          headline: 'Ant-Man keren banget',
+          review: 'Filmnya keren',
           rating: 4
-        }], {})
+        },
+        {
+          user_id: 1,
+          movie_id: 3,
+          headline: 'Sereemm',
+          review: 'Conjuring best film horror',
+          rating: 4
+        },
+        {
+          user_id: 1,
+          movie_id: 4,
+          headline: 'Spider-Man Keren',
+          review: 'Tom holland ganteng banget gila!!!',
+          rating: 4
+        }
+      ], {})
 
   },
 

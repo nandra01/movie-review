@@ -14,9 +14,6 @@ module.exports = (sequelize, DataTypes) => {
       this.hasOne(models.watchlist, {
         foreignKey: 'user_id'
       }),
-      this.hasOne(models.review, {
-        foreignKey: 'user_id'
-      }),
       this.hasMany(models.review, {
         foreignKey: 'user_id'
       })

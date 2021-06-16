@@ -10,8 +10,18 @@ router.get(
 );
 
 router.get(
+    '/pageMovie',
+    movieController.getMoviePage
+);
+
+router.get(
     '/moviesWithGenre',
     movieController.getMovieWithGenre
+);
+
+router.get(
+    '/moviesWithReviewAndUser',
+    movieController.getMoviesWithReviewAndUser
 );
 
 

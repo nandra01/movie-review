@@ -1,7 +1,4 @@
 'use strict';
-
-const { sequelize } = require("../../../../exercise/exercise_be-afternoon/BOOKING_HOTEL/models");
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('movies', {
@@ -38,14 +35,18 @@ module.exports = {
       trailer: {
         type: Sequelize.STRING
       },
+      poster: {
+        type: Sequelize.STRING
+      },
       watchlist_id: {
         type: Sequelize.INTEGER,
         foreignKey: true
       },
-      poster: {
-        type: Sequelize.STRING
-      },
       category_id: {
+        type: Sequelize.INTEGER,
+        foreignKey: true
+      },
+      genre_id: {
         type: Sequelize.INTEGER,
         foreignKey: true
       },

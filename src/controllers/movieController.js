@@ -8,7 +8,6 @@ const {
 
 const movieController = {}
 
-
 movieController.getMovie = async (req, res) => {
     try {
         const movies = await userMovie.findAll({
@@ -41,6 +40,47 @@ movieController.getMovieWithGenre = async (req, res) => {
     try {
         const movies = await userMovie.findAll({
             include: [{ model: userGenre }]
+        });
+
+        const getData = {
+            statusCode: 200,
+            statusText: 'Success',
+            message: 'Get all data user',
+            data: movies
+        };
+        res.json(getData)
+    } catch (error) {
+        console.log(error)
+        res.json(error)
+    }
+};
+
+
+movieController.getMoviePage = async (req, res) => {
+    try {
+        const { page, size } = req.query
+        const movies = await userMovie.findAll({
+            limit: size,
+            offset: page * size,
+        });
+        const getData = {
+            statusCode: 200,
+            statusText: 'Success',
+            message: 'Get all data user',
+            data: movies
+        };
+
+        res.json(getData)
+    } catch (error) {
+        console.log(error)
+        res.json(error)
+    }
+};
+
+movieController.getMoviesWithReviewAndUser = async (req, res) => {
+    try {
+        const movies = await userMovie.findAll({
+            include: [{ model: userReview, include: [{ model: users } ] }]
         });
 
         const getData = {

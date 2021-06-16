@@ -33,17 +33,15 @@ authController.getUsers = async (req, res) => {
     }
 };
 
-authController.getUsersRelation = async (req, res) => {
+authController.getUsersReviews = async (req, res) => {
     try {
-        const usersReview = await userModel.findAll({
-            include: [{ userReview }]
-        });
+        const users = await userModel.findAll({ include: userReview });
 
         const getData = {
             statusCode: 200,
             statusText: 'Success',
             message: 'Get all data user',
-            data: usersReview
+            data: users
         };
         res.json(getData)
     } catch (error) {

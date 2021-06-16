@@ -11,86 +11,85 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-     await queryInterface.bulkInsert('genres', [
+     await queryInterface.bulkInsert(
+    'genres', [
       {
         movie_id: 1,
-        genre_name: "Action"
-    },
-    {
-      movie_id: 1,
-      genre_name: "Adventure"
-    },
-    {
-      movie_id: 1,
-      genre_name: "Animation"
-    },
-    {
-      movie_id: 1,
-      genre_name: "Comedy"
-    },
-    {
-      movie_id: 1,
-      genre_name: "Crime"
-    },
-    {
-      movie_id: 1,
-      genre_name: "Documentary"
-    },
-    {
-      movie_id: 1,
-      genre_name: "Drama"
-    },
-    {
-      movie_id: 1,
-      genre_name: "Family"
-    },
-    {
-      movie_id: 1,
-      genre_name: "Fantasy"
-    },
-    {
-      movie_id: 1,
-      genre_name: "History"
-    },
-    {
-      movie_id: 1,
-      genre_name: "Horror"
-    },
-    {
-      movie_id: 1,
-      genre_name: "Music"
-    },
-    {
-      movie_id: 1,
-      genre_name: "Mystery"
-    },
-    {
-      movie_id: 1,
-      genre_name: "Romance"
-    },
-    {
-      movie_id: 1,
-      genre_name: "Science Fiction"
-    },
-    {
-      movie_id: 1,
-      genre_name: "TV Movie"
-    },
-    {
-      movie_id: 1,
-      genre_name: "Thriller"
-    },
-    {
-      movie_id: 1,
-      genre_name: "War"
-    },
-    {
-      movie_id: 1,
-      genre_name: "Western"
-    }
+        sub_genre_id: 1
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 2
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 3
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 4
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 5
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 6
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 7
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 8
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 9
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 10
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 11
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 12
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 13
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 14
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 15
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 16
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 17
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 18
+      },
+      {
+        movie_id: 1,
+        sub_genre_id: 19
+      },
     ])
-
-
   },
 
   down: async (queryInterface, Sequelize) => {

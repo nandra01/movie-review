@@ -27,8 +27,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       foreignKey:true
     },
-    genre_name: {
-      type: DataTypes.STRING
+    sub_genre_id: {
+      type: DataTypes.INTEGER,
+      foreignKey: true
     },
     createdAt: {
       allowNull: false,

@@ -38,12 +38,16 @@ module.exports = (sequelize, DataTypes) => {
     rating: DataTypes.INTEGER,
     synopsis: DataTypes.STRING,
     trailer: DataTypes.STRING,
+    poster: DataTypes.STRING,
     watchlist_id: {
       type: DataTypes.INTEGER,
       foreignKey: true
     },
-    poster: DataTypes.STRING,
     category_id: {
+      type: DataTypes.INTEGER,
+      foreignKey: true
+    },
+    genre_id: {
       type: DataTypes.INTEGER,
       foreignKey: true
     }

@@ -56,17 +56,17 @@ authController.getUsersRelation = async (req, res) => {
  * Create new user
  */
 authController.register = async (req, res) => {
-    const { username , password } = req.body;
+    const { email , password } = req.body;
 
     const existingUser = await userModel.findOne({
-        where: {username: username},
+        where: {email: email},
     });
 
     //!handling if usernmae is exist
     if(existingUser !==null) {
         res.status(400).send({
             status:400,
-            message: "username already taken",
+            message: "email already exist",
             data: null
         });
     }
@@ -78,6 +78,10 @@ authController.register = async (req, res) => {
         });
        
         user = result.dataValues
+        delete user.password;
+        delete user.role;
+        delete user.updatedAt;
+        delete user.createdAt;
         const token = jwt.sign(user, "secret_key")
 
         res.status(200).send({

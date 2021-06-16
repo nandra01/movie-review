@@ -1,6 +1,9 @@
 const  authMiddleware = {};
 const joi = require('joi');
 
+/**
+ * check validate data when user register
+ */
 authMiddleware.validateRegister = (req, res ,next) => {
     const userSchema = joi.object({
         //role: joi.string().required(),
@@ -23,6 +26,9 @@ authMiddleware.validateRegister = (req, res ,next) => {
 
 };
 
+/**
+ * Check validate user when login
+ */
 authMiddleware.validateLogin = async (req, res, next) => {
      //validasi input data
      const loginSchema = joi.object({
@@ -39,6 +45,20 @@ authMiddleware.validateLogin = async (req, res, next) => {
     }
 
     next();
+};
+
+/**
+ * Check User role
+ */
+ authMiddleware.adminPage = (permissions) => {
+    return (req, res, next) => {
+    const userRole = req.body.role
+    if(permissions.includes(userRole)) {
+        next()
+    } else {
+        return res.status(401).json("you dont have permission!")
+    }
+}
 };
 
 module.exports = authMiddleware;

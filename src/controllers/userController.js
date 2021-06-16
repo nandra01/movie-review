@@ -114,7 +114,6 @@ authController.login = async (req, res) => {
         if(isPasswordMatch) {
             user = user.dataValues;
             delete user.password;
-            delete user.role;
 
             const token = jwt.sign(user, 'secret_key');
         

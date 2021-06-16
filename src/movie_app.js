@@ -16,7 +16,7 @@ app.use(bp.json())
 
 app.use(
   cors({
-    origin: "https://rocky-beyond-12209.herokuapp.com",
+    origin: "https://movie-app-teamc.herokuapp.com/",
   })
 )
 

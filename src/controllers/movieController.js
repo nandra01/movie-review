@@ -12,23 +12,21 @@ const movieController = {}
 movieController.getMovie = async (req, res) => {
     try {
         const movies = await userMovie.findAll({
-            include: [{ model: userGenre }]
+            include: [{ model: userGenre },{ model: userChar}, {model: userReview, include: [users]}]
         });
-        const movieChar = await userMovie.findAll({
-            include: [{ model: userChar }]
-        });
-        const usersReview = await users.findAll({
-            include: [{ model: userReview, include: [userMovie] }]
-        });
+        // const movieChar = await userMovie.findAll({
+        //     include: [{ model: userChar }]
+        // });
+        // const usersReview = await users.findAll({
+        //     include: [{ model: userReview, include: [userMovie] }]
+        // });
 
         const getData = {
             statusCode: 200,
             statusText: 'Success',
             message: 'Get all data user',
             data: {
-                movies,
-                movieChar,
-                usersReview
+                movies
             }
         };
         res.json(getData)

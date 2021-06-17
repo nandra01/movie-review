@@ -17,14 +17,14 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.category, {
         foreignKey: 'category_id'
       }),
-      this.hasMany(models.genre, {
-        foreignKey: 'movie_id'
-      }),
       this.hasMany(models.char, {
         foreignKey: 'movie_id'
       }),
       this.hasMany(models.review, {
         foreignKey: 'movie_id'
+      }),
+      this.hasMany(models.movie_genre, {
+        foreignKey: 'movie_id', as: 'MovieGenre'
       })
     }
   };

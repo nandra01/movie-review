@@ -8,5 +8,4 @@ const char = require('../controllers/charController')
 router.get('/chr', char.getChar)
 
 
-
 module.exports = router

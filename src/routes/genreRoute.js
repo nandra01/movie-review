@@ -8,6 +8,7 @@ const genre = require('../controllers/genreController')
 
 // Route Genre
 router.get('/genres', genre.getGenre)
+// router.get('/genreMovie', genre.getMovieGenre)
 router.post('/genre', genre.createGenre)
 router.put('/genre/:id' , genre.updateGenre)
 router.delete('/genre/:id', genre.deleteGenre)

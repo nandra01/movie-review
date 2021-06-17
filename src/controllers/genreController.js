@@ -18,6 +18,7 @@ method.getGenre = async (req, res) => {
  }
 }
 
+
 method.createGenre = (req, res) => {
     try {
         const createNew ={

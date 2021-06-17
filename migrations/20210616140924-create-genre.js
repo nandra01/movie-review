@@ -8,23 +8,16 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      movie_id: {
-        type: Sequelize.INTEGER,
-        foreignKey:true
-      },
-      sub_genre_id: {
-        type: Sequelize.INTEGER,
-        foreignKey: true
+      genre_name: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: new Date()
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: new Date()
       }
     });
   },

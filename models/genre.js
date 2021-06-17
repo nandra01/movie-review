@@ -11,36 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.movies, {
-        foreignKey: 'movie_id'
+      this.hasMany(models.movie_genre, {
+        foreignKey: 'genre_id', as: 'Genre'
       })
     }
   };
   genre.init({
-    id: {
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-      type: DataTypes.INTEGER
-    },
-    movie_id: {
-      type: DataTypes.INTEGER,
-      foreignKey:true
-    },
-    sub_genre_id: {
-      type: DataTypes.INTEGER,
-      foreignKey: true
-    },
-    createdAt: {
-      allowNull: false,
-      type: DataTypes.DATE,
-      defaultValue: new Date()
-    },
-    updatedAt: {
-      allowNull: false,
-      type: DataTypes.DATE,
-      defaultValue: new Date()
-    }
+    genre_name: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'genre',

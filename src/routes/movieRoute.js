@@ -10,6 +10,16 @@ router.get(
 );
 
 router.get(
+    '/movie/:id',
+    movieController.getMovieId
+);
+
+router.get(
+    '/movie',
+    movieController.getMovieTitle
+);
+
+router.get(
     '/pageMovie',
     movieController.getMoviePage
 );

@@ -20,7 +20,7 @@ const tokenMiddleware = {
                 })
             }
             const decodeToken = await jwt.verify(token, 'secret_key')
-            req.body.decodeToken = decodeToken;
+            req.headers.decodeToken = decodeToken;
 
             next()
 

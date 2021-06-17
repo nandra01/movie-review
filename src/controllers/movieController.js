@@ -6,6 +6,9 @@ const {
     users: users 
 } = require('../../models')
 
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op
+
 const movieController = {}
 
 movieController.getMovie = async (req, res) => {
@@ -23,7 +26,7 @@ movieController.getMovie = async (req, res) => {
         const getData = {
             statusCode: 200,
             statusText: 'Success',
-            message: 'Get all data user',
+            message: 'Get all data Movie',
             data: {
                 movies
             }
@@ -35,6 +38,21 @@ movieController.getMovie = async (req, res) => {
     }
 };
 
+movieController.findMovieByTitle = async (req, res) => {
+    try {
+        let title = req.query.title;
+        const find = await userMovie.findAll({
+            where: { title: { [Op.iLike]: '%' + title + '%'}}
+        });
+        res.send({
+            status: 200,
+            message: `Show a movie with the title ${title}`,
+            data: find
+        })
+    } catch (error) {
+        res.json(error)
+    }
+};
 
 movieController.getMovieWithGenre = async (req, res) => {
     try {

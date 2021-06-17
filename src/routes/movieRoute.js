@@ -14,6 +14,12 @@ router.get(
     movieController.getMoviePage
 );
 
+
+router.get(
+    '/find/movies',
+    movieController.findMovieByTitle
+);
+
 router.get(
     '/moviesWithGenre',
     movieController.getMovieWithGenre

@@ -27,7 +27,7 @@ router.get(
 
 router.get(
     '/find/movies',
-    movieController.findMovieByTitle
+    movieController.getMovieTitle
 );
 
 router.get(

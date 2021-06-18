@@ -24,6 +24,12 @@ router.get(
 );
 
 router.get(
+    '/user/id',
+    authController.getUserId
+);
+
+
+router.get(
     '/userReview',
     authController.getUsersReviews
 );

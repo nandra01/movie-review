@@ -33,6 +33,32 @@ authController.getUsers = async (req, res) => {
     }
 };
 
+/**
+ * Get user by user_id
+ */
+authController.getUserId = async (req, res) => {
+    try {
+        const id = req.body.id
+        const findUser = await userModel.findOne({
+            where: { id }
+        })
+        user = findUser.dataValues
+        delete user.role
+        res.send({
+            status:200,
+            message: 'get data user by id',
+            data: findUser
+        })
+
+    } catch (error) {
+        console.log((error));
+        res.send({
+            status:400,
+            message: 'cannot find user id',
+        })
+    }
+}
+
 authController.getUsersReviews = async (req, res) => {
     try {
         const users = await userModel.findAll({ include: userReview });

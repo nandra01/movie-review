@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'movie_id'
       }),
       this.hasMany(models.review, {
-        foreignKey: 'movie_id'
+        foreignKey: 'movie_id', as: 'UserReview'
       }),
       this.hasMany(models.movie_genre, {
         foreignKey: 'movie_id', as: 'MovieGenre'

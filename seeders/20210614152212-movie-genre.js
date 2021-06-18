@@ -14,17 +14,12 @@ module.exports = {
      await queryInterface.bulkInsert(
     'movie_genres', [
       {
-        movie_id: 1,
-        genre_id: 1,
+        movie_id: 9,
+        genre_id: 4,
         createdAt: new Date(),
         updatedAt: new Date()
       },
-      {
-        movie_id: 2,
-        genre_id: 2,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
+      
     ])
   },
 

@@ -28,6 +28,10 @@ router.get(
     authController.getUserId
 );
 
+router.get(
+    '/user',
+    authController.getUserAllReview
+)
 
 router.get(
     '/userReview',

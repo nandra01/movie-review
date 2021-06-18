@@ -74,7 +74,6 @@ movieController.getMoviePage = async (req, res) => {
             message: 'Get all data movie',
             data: movies
         };
-
         res.json(getData)
     } catch (error) {
         console.log(error)
@@ -104,9 +103,6 @@ movieController.getMoviesWithReviewAndUser = async (req, res) => {
     }
 };
 
-/**
- * Get movie by MovieId
- */
 movieController.getMovieId = async (req, res) => {
     try {
         const idMovie = req.params.id
@@ -148,7 +144,7 @@ movieController.getMovieTitle = async (req, res) => {
     } catch (error) {
         res.status(500).json(error)
     }
-}
+};
 
 
 

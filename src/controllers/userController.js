@@ -36,7 +36,7 @@ authController.getUsers = async (req, res) => {
 /**
  * Get user by user_id
  */
-authController.getUserId = async (req, res) => {
+ authController.getUserId = async (req, res) => {
     try {
         const id = req.body.id
         const findUser = await userModel.findOne({
@@ -60,8 +60,43 @@ authController.getUserId = async (req, res) => {
             message: 'cannot find user id',
         })
     }
-}
+};
+/**
+ *  Get user's all review
+ */
+authController.getUserAllReview = async (req, res) => {
+    try {
+        const userId = req.body.id
+        const getUserId = await userModel.findByPk(userId, {
+            include: [{ model: userReview, include: [{ model: userMovie }] }]
+        })
+        user = getUserId.dataValues;
+        delete user.role;
+        delete user.password;
+        delete user.createdAt;
+        delete user.updatedAt;
+        if (getUserId) {
+            const getOneUsers = {
+                statusCode: 200,
+                statusText: 'Success',
+                message: 'Success get spesific data',
+                data: getUserId
+            }
+           
+            res.json(getOneUsers)
+        } else {
+            res.status.json('Data not found')
+        }
 
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json(error)
+    }
+};
+
+/**
+ * Get all user with their review
+ */
 authController.getUsersReviews = async (req, res) => {
     try {
         const users = await userModel.findAll({ include: userReview });

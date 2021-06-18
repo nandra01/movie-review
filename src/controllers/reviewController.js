@@ -61,7 +61,32 @@ reviewController.createReview = async (req, res) => {
             message: 'failed to create review'
         })
     }
-} ;
+};
 
+/**
+ * Edit/update user review
+ */
+reviewController.updateReview = async (req, res) => {
+    try {
+        const review_id = req.body.id;
+        let review = await userReview.update(req.body,{
+            where: {
+                id: review_id
+            },
+        });
+        res.send({
+            status:200,
+            message: `Your Review Has Been Update`,
+            data: review
+        })
+    }catch (error) {
+    console.log("👾 ~ file: reviewController.js ~ line 84 ~ reviewController.updateReview= ~ error", error)
+    res.send({
+        status:500,
+        data:[],
+        message:'Update review failed'
+      })
+    }
+}
 
 module.exports = reviewController

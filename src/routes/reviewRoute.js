@@ -15,4 +15,10 @@ router.post(
     reviewController.createReview
 )
 
+router.put(
+    '/update/review', 
+    tokenMiddleware.verifyToken, 
+    reviewController.updateReview
+)
+
 module.exports = router

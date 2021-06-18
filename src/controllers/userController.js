@@ -101,13 +101,14 @@ authController.getUserAllReview = async (req, res) => {
 authController.getUsersReviews = async (req, res) => {
     try {
         const users = await userModel.findAll({ include: userReview });
-
+       
         const getData = {
             statusCode: 200,
             statusText: 'Success',
             message: 'Get all data user',
             data: users
         };
+        
         res.json(getData)
     } catch (error) {
         console.log(error)

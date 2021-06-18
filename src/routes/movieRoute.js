@@ -10,7 +10,7 @@ router.get(
 );
 
 router.get(
-    '/movieId',
+    '/movieId/:id',
     movieController.getMovieId
 );
 

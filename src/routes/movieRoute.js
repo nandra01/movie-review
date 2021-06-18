@@ -15,15 +15,9 @@ router.get(
 );
 
 router.get(
-    '/movie',
-    movieController.getMovieTitle
-);
-
-router.get(
     '/pageMovie',
     movieController.getMoviePage
 );
-
 
 router.get(
     '/find/movies',

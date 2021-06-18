@@ -45,7 +45,8 @@ authController.getUserId = async (req, res) => {
         user = findUser.dataValues;
         delete user.role;
         delete user.password;
-        
+        delete user.createdAt;
+        delete user.updatedAt
         res.send({
             status:200,
             message: 'get data user by id',

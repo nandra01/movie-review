@@ -6,7 +6,7 @@ const joi = require('joi');
  */
 authMiddleware.validateRegister = (req, res ,next) => {
     const userSchema = joi.object({
-        //role: joi.string().required(),
+       // role: joi.string('user'),
         full_name: joi.string().required(),
         username: joi.string().required(),
         email: joi.string().required(),

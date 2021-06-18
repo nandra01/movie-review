@@ -89,7 +89,6 @@ movieController.getMoviesWithReviewAndUser = async (req, res) => {
         const movies = await userMovie.findAll({
             include: [{ model: userReview, as:'UserReview', include: [{ model: userModel, as: 'UserPeople' } ] }]
         });
-        console.log(userModel);
         const getData = {
             statusCode: 200,
             statusText: 'Success',

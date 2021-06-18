@@ -20,7 +20,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   users.init({
-    role: DataTypes.STRING,
+    role: {
+      type: DataTypes.STRING,
+      defaultValue: 'users'
+    },
     full_name: DataTypes.STRING,
     username: DataTypes.STRING,
     email: DataTypes.STRING,

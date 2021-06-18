@@ -75,6 +75,7 @@ authController.getUserAllReview = async (req, res) => {
         delete user.password;
         delete user.createdAt;
         delete user.updatedAt;
+        
         if (getUserId) {
             const getOneUsers = {
                 statusCode: 200,

@@ -63,40 +63,5 @@ reviewController.createReview = async (req, res) => {
     }
 } ;
 
-reviewController.createReview = async (req, res) => {
-    try {
-        const create = {
-            user_id: req.body.user_id,
-            movie_id: req.body.movie_id,
-            headline: req.body.headline,
-            review: req.body.review,
-            rating: req.body.rating,
-        };
-        // user can only create one riview in one movie
-        const existReview = await userReview.findOne({
-            where: {
-                movie_id,
-                user_id
-            }
-        })
-        if (existReview) {
-            res.send('You Already Submit Review');
-        } else {
-            const newReview = await userReview.create(create);
-            console.log(newReview)
-            res.json({
-                statusCode: 200,
-                statusText: 'Success',
-                message: 'New Review has been created',
-                data: newReview
-            })
-            .status(200);
-        }
-    } catch (error) {
-        console.log(error)
-        res.json(error)
-    }
-}
-
 
 module.exports = reviewController

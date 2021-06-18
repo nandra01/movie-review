@@ -42,8 +42,10 @@ authController.getUserId = async (req, res) => {
         const findUser = await userModel.findOne({
             where: { id }
         })
-        user = findUser.dataValues
-        delete user.role
+        user = findUser.dataValues;
+        delete user.role;
+        delete user.password;
+        
         res.send({
             status:200,
             message: 'get data user by id',

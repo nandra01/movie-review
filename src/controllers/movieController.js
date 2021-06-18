@@ -18,7 +18,7 @@ const movieController = {}
 movieController.getMovie = async (req, res) => {
     try {
         const movies = await userMovie.findAll({
-            include: [{ model: userGenre },{ model: userChar}, {model: userReview, include: [users]}]
+            include: [{ model: movieGenre, as: 'MovieGenre' },{ model: userChar}, {model: userReview,as:'UserReview', include: [{model: userModel,as:'UserPeople'}]}]
         });
 
         const getData = {
@@ -104,16 +104,16 @@ movieController.getMoviesWithReviewAndUser = async (req, res) => {
 
 movieController.getMovieId = async (req, res) => {
     try {
-        const idMovie = req.params.id
+        const idMovie = req.body.id
         const movies = await userMovie.findByPk(idMovie, {
-            include: [userReview]
+            include: [{ model: userReview, as:'UserReview', include: [{ model: userModel, as: 'UserPeople' } ] }]
         })
 
         if (movies) {
             const resPayLoad = {
                 statusCode: 200,
                 statusText: 'Success',
-                message: `Get Movie by id ${req.params.id} Success`,
+                message: `Get Movie by id ${req.body.id} Success`,
                 data: movies
             };
             res.json(resPayLoad)

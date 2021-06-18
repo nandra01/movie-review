@@ -35,7 +35,7 @@ router.get(
 );
 
 router.put(
-    '/users/update',
+    '/user/update',
     tokenMiddleware.verifyToken,
     authController.updateUser
 );

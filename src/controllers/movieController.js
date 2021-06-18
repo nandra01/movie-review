@@ -3,7 +3,7 @@ const {
     movie_genre: movieGenre,
     char: userChar,
     review: userReview,
-    users: users,
+    users: userModel,
     genre: genreName,
 } = require('../../models')
 
@@ -87,9 +87,9 @@ movieController.getMoviePage = async (req, res) => {
 movieController.getMoviesWithReviewAndUser = async (req, res) => {
     try {
         const movies = await userMovie.findAll({
-            include: [{ model: userReview, include: [{ model: users } ] }]
+            include: [{ model: userReview, include: [{ model: userModel, as: 'user' } ] }]
         });
-
+        console.log(userModel);
         const getData = {
             statusCode: 200,
             statusText: 'Success',

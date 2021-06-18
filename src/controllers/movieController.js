@@ -43,7 +43,6 @@ movieController.getMovieWithGenre = async (req, res) => {
     try {
         const movies = await userMovie.findAll({
             include: [ {model: movieGenre, as: 'MovieGenre', include: [{ model: genreName, as: 'Genre', properties: [ 'genre_name' ] }] }],
-            where: { '$MovieGenre.genre_id$': req.body.movie_id }
         })
 
         const getData = {

@@ -68,7 +68,7 @@ authController.getUserAllReview = async (req, res) => {
     try {
         const userId = req.body.id
         const getUserId = await userModel.findByPk(userId, {
-            include: [{ model: userReview, include: [{ model: userMovie }] }]
+            include: [{ model: userReview, as: 'UserReview', include: [{ model: userMovie }] }]
         })
         user = getUserId.dataValues;
         delete user.role;

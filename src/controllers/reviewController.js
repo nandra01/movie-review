@@ -9,7 +9,7 @@ const reviewController = {}
 reviewController.getReviews = async (req, res) => {
     try {
         const review = await userReview.findAll({
-            include: [userModel]
+            include: [{model: userModel, as:'UserPeople'}]
         });
         const getData = {
             statusCode: 200,

@@ -11,14 +11,17 @@ router.get(
 );
 
 router.get(
+    '/movies/pagination',
+    movieController.getMoviePage,
+    movieController.getMovie
+    
+);
+
+router.get(
     '/movieId/:id',
     movieController.getMovieId
 );
 
-// router.get(
-//     '/pageMovie',
-//     movieController.getMoviePage
-// );
 
 router.get(
     '/find/movies',
@@ -28,6 +31,13 @@ router.get(
 router.get(
     '/moviesWithGenre',
     movieController.getMovieWithGenre
+);
+
+router.get(
+    '/moviesWithGenre/pagination',
+    movieController.getMoviePage,
+    movieController.getMovieWithGenre
+    
 );
 
 router.get(

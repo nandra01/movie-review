@@ -27,7 +27,6 @@ router.get(
 
 router.get(
     '/moviesWithGenre',
-    movieController.getMoviePage,
     movieController.getMovieWithGenre
 );
 

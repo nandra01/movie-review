@@ -100,8 +100,7 @@ authController.getUserAllReview = async (req, res) => {
  */
 authController.getUsersReviews = async (req, res) => {
     try {
-        const users = await userModel.findAll({ include: userReview });
-       
+        const users = await userModel.findAll({ include: userReview }); 
         const getData = {
             statusCode: 200,
             statusText: 'Success',
@@ -177,7 +176,10 @@ authController.login = async (req, res) => {
         const isPasswordMatch = await bcrypt.compare(req.body.password, user.dataValues.password)
         if(isPasswordMatch) {
             user = user.dataValues;
+            delete user.role;
             delete user.password;
+            delete user.createdAt;
+            delete user.updatedAt;
 
             const token = jwt.sign(user, 'secret_key');
         
@@ -185,6 +187,7 @@ authController.login = async (req, res) => {
                 status:200,
                 message: "ok",
                 data: {
+                  user,
                   token,
                 },
             });

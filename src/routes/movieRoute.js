@@ -12,9 +12,7 @@ router.get(
 
 router.get(
     '/movies/pagination',
-    movieController.getMoviePage,
-    movieController.getMovie
-    
+    movieController.getMoviePage
 );
 
 router.get(

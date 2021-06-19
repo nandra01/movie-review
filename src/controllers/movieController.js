@@ -66,7 +66,7 @@ movieController.getMoviePage = async (req, res) => {
         const { page, size } = req.query
         const movies = await userMovie.findAll({
             limit: size,
-            offset: page * size,
+            offset: page * size,    
         });
         const getData = {
             statusCode: 200,
@@ -121,6 +121,7 @@ movieController.getMovieId = async (req, res) => {
             res.status(500).json('Data not found')
         }
     } catch (error) {
+        console.log(error);
         res.status(500).json(error)
     }
 }

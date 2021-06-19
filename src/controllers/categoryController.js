@@ -5,7 +5,9 @@ const categoryController = {}
 
 categoryController.getCategories = async (req, res) => {
     try {
-        const category = await userCategory.findAll({ include: [userMovie] });
+        const category = await userCategory.findAll({ 
+            include: [ userMovie ] 
+        });
         const getData = {
             statusCode: 200,
             statusText: 'Success',

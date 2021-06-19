@@ -6,7 +6,9 @@ const movieController = require('../controllers/movieController')
 
 router.get(
     '/movies',
+    movieController.getMoviePage,
     movieController.getMovie
+    
 );
 
 router.get(
@@ -14,10 +16,10 @@ router.get(
     movieController.getMovieId
 );
 
-router.get(
-    '/pageMovie',
-    movieController.getMoviePage
-);
+// router.get(
+//     '/pageMovie',
+//     movieController.getMoviePage
+// );
 
 router.get(
     '/find/movies',
@@ -26,6 +28,7 @@ router.get(
 
 router.get(
     '/moviesWithGenre',
+    movieController.getMoviePage,
     movieController.getMovieWithGenre
 );
 

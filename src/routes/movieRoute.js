@@ -6,7 +6,6 @@ const movieController = require('../controllers/movieController')
 
 router.get(
     '/movies',
-    movieController.getMoviePage,
     movieController.getMovie
     
 );

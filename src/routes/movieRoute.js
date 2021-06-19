@@ -33,12 +33,6 @@ router.get(
     movieController.getMovieWithGenre
 );
 
-router.get(
-    '/moviesWithGenre/pagination',
-    movieController.getMoviePage,
-    movieController.getMovieWithGenre
-    
-);
 
 router.get(
     '/moviesWithReviewAndUser',

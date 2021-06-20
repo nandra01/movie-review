@@ -90,10 +90,7 @@ authController.getUserAllReview = async (req, res) => {
         }
 
     } catch (error) {
-        res.send({
-            status:400,
-            message: 'Data not found',
-        })
+        res.send({status: 500, message:'failed'})
     }
 };
 

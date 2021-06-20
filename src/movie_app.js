@@ -9,7 +9,7 @@ const movieRouter = require('./routes/movieRoute')
 const categoryRouter = require('./routes/categoryRoute')
 const reviewsRouter = require('./routes/reviewRoute')
 
-const PORT = process.env.PORT || '3001'
+const PORT = process.env.PORT || '5001'
 
 const app = express()
 

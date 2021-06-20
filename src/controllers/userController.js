@@ -67,7 +67,7 @@ authController.getUsers = async (req, res) => {
 authController.getUserAllReview = async (req, res) => {
     try {
         const userId = req.body.id
-        const getUserId = await userModel.findByPk(userId, {
+        const getUserId = await userModel.findOne({where: {id: userId},
             include: [{ model: userReview, as: 'UserReview', include: [{ model: userMovie }] }]
         })
         user = getUserId.dataValues;

@@ -21,4 +21,10 @@ router.put(
     reviewController.updateReview
 )
 
+router.delete(
+    '/delete/review',
+    tokenMiddleware.verifyToken,
+    reviewController.deleteUserReview
+)
+
 module.exports = router

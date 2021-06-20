@@ -87,6 +87,33 @@ reviewController.updateReview = async (req, res) => {
         message:'Update review failed'
       })
     }
+};
+
+/**
+ * Delete user review
+ */
+reviewController.deleteUserReview = async (req, res) => {
+    try {
+        const review_id = req.body.id;
+        let deleteReview = await userReview.destroy({
+            where: {
+                id: review_id
+            },
+        });
+        res.send({
+            status: 200,
+            message: 'Your review has been delete',
+            data: deleteReview
+        })
+
+    }catch(error) {
+        console.log(error);
+        res.send({
+            status:500,
+            data:[],
+            message:'Delete review failed'
+          })
+    }
 }
 
 module.exports = reviewController

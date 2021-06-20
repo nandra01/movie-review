@@ -11,7 +11,7 @@ authMiddleware.validateRegister = (req, res ,next) => {
         username: joi.string().required(),
         email: joi.string().required(),
         password: joi.string().required(),
-        profile_picture:joi.string().required(),
+        //profile_picture:joi.string().required(),
     });
 
     const { error } = userSchema.validate(req.body);

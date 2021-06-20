@@ -28,7 +28,10 @@ module.exports = (sequelize, DataTypes) => {
     username: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    profile_picture: DataTypes.STRING
+    profile_picture: {
+      type: DataTypes.STRING,
+      defaultValue: 'https://firebasestorage.googleapis.com/v0/b/foto-f141a.appspot.com/o/profile.png?alt=media&token=b56596b2-05f9-4652-9ea0-38cd91004ba9'
+    },
   }, {
     sequelize,
     modelName: 'users',

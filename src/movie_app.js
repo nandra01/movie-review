@@ -16,11 +16,11 @@ const app = express()
 app.use(bp.urlencoded({ extended: false }))
 app.use(bp.json())
 
-app.use(
+pp.use(
   cors({
-    origin: "https://movie-app-teamc.herokuapp.com/",
+    origin: "*",
   })
-)
+);
 
 app.use('/api', userRouter)
 app.use('/api' , genreRouter)

@@ -16,7 +16,7 @@ const app = express()
 app.use(bp.urlencoded({ extended: false }))
 app.use(bp.json())
 
-pp.use(
+app.use(
   cors({
     origin: "*",
   })
